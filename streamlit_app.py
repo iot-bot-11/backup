@@ -60,3 +60,25 @@ if submit_button:
         print(response)
     else:
         st.warning("Please upload an image before generating response.")
+
+# Define a function to handle feedback submission
+def submit_feedback(feedback):
+    # Here, you can implement the logic to store or process the feedback
+    st.success("Thank you for your feedback!")
+
+
+
+# Feedback button
+feedback_button = st.button("Feedback")
+
+# If feedback button is clicked
+if feedback_button:
+    st.write("Please provide your feedback:")
+    feedback_text = st.text_area("Feedback:", height=100)
+
+    st.write("Upload an image (if applicable):")
+    feedback_image = st.file_uploader("Upload Image", type=["jpg", "jpeg", "png"])
+
+    submit_feedback_button = st.button("Submit Feedback")
+    if submit_feedback_button:
+        submit_feedback(feedback_text, feedback_image)
